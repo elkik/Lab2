@@ -1,0 +1,263 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "67de9f48",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "chemin = \"C:/Users/pc/Documents/université/session 5/A21/Lab 2/Données python/correlation/F_A.xlsx\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "4f920899",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'C:/Users/pc/Documents/université/session 5/A21/Lab 2/Données python/correlation/F_A.xlsx'"
+      ]
+     },
+     "execution_count": 14,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "chemin"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "a71a9448",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "c1e1de2c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df = pandas.read_excel(chemin)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "2ac99574",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>ML_FoldInd</th>\n",
+       "      <th>ML_Area</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>40.029412</td>\n",
+       "      <td>2507.147059</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>37.529412</td>\n",
+       "      <td>2208.470588</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>36.911765</td>\n",
+       "      <td>2076.500000</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>35.735294</td>\n",
+       "      <td>2238.588235</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>36.264706</td>\n",
+       "      <td>2421.264706</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>...</th>\n",
+       "      <td>...</td>\n",
+       "      <td>...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>174</th>\n",
+       "      <td>35.117647</td>\n",
+       "      <td>2099.441176</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>175</th>\n",
+       "      <td>35.117647</td>\n",
+       "      <td>2293.705882</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>176</th>\n",
+       "      <td>38.588235</td>\n",
+       "      <td>2509.029412</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>177</th>\n",
+       "      <td>35.382353</td>\n",
+       "      <td>2299.941176</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>178</th>\n",
+       "      <td>33.235294</td>\n",
+       "      <td>2158.352941</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "<p>179 rows × 2 columns</p>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "     ML_FoldInd      ML_Area\n",
+       "0     40.029412  2507.147059\n",
+       "1     37.529412  2208.470588\n",
+       "2     36.911765  2076.500000\n",
+       "3     35.735294  2238.588235\n",
+       "4     36.264706  2421.264706\n",
+       "..          ...          ...\n",
+       "174   35.117647  2099.441176\n",
+       "175   35.117647  2293.705882\n",
+       "176   38.588235  2509.029412\n",
+       "177   35.382353  2299.941176\n",
+       "178   33.235294  2158.352941\n",
+       "\n",
+       "[179 rows x 2 columns]"
+      ]
+     },
+     "execution_count": 17,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "8e764552",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>ML_FoldInd</th>\n",
+       "      <th>ML_Area</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>ML_FoldInd</th>\n",
+       "      <td>1.000000</td>\n",
+       "      <td>0.759762</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>ML_Area</th>\n",
+       "      <td>0.759762</td>\n",
+       "      <td>1.000000</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "            ML_FoldInd   ML_Area\n",
+       "ML_FoldInd    1.000000  0.759762\n",
+       "ML_Area       0.759762  1.000000"
+      ]
+     },
+     "execution_count": 18,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.corr()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "57ba9c32",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
